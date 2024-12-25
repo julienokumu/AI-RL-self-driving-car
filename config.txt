@@ -1,0 +1,162 @@
+# NEAT Configuration
+[NEAT]
+# Criterion checks which genome is the best in each generation
+# 'max' is the genome with the highest fitness value to be considered
+fitness_criterion = max
+
+# the target fitness value at which the evolution process ends
+# if genomes fitness value reaches this value, algorithm concludes successfully
+fitness_threshold = 100000000
+
+# total genomes in each generation
+# large populations can explore the solution space better but require more computational resources
+pop_size = 30
+
+# if species go instict, population should be regenerated
+reset_on_extinction = True
+
+[DefaultGenome]
+# default activation applied to each node, input values range between -1 and 1
+activation_default = tanh
+
+# probability of mutating the activation function of a node during evolution
+activation_mutate_rate = 0.01
+
+# set tanh as the activation function for the node
+activation_options = tanh
+
+# default aggregation function used to combine input at a node
+# 'sum' add all input values together
+aggregation_default = sum
+
+# probability of mutating the aggregation function at a node
+aggregation_mutate_rate = 0.01
+
+# set 'sum' as aggregation function
+aggregation_options = sum
+
+# the mean value of biases assigned to nodes when they are first created
+bias_init_mean = 0.0
+
+# standard deviation for initializing node biases, controlling how spread out the initial values are
+bias_init_stdev = 1.0
+
+# maximum allowable value for biases in noded, prevents overly large biases
+bias_max_value = 30.0
+
+# minimum allowable value for biases in noded, prevents overly small biases
+bias_min_value = -30.0
+
+# amount of change applied to a bias when it mutates
+# a large value allows biases to adjust more drastically during evolution
+bias_mutate_power = 0.5
+
+# the probability of a bias being altered during a mutation event
+bias_mutate_rate = 0.7
+
+# probability of replacing the current bias with a completely random value
+bias_replace_rate = 0.1
+
+# compatibility between two genomes
+compatibility_disjoint_coefficient = 1.0
+
+# coeffecient determining importance of weight differences between shared genomes
+compatibility_weight_coefficient = 0.5
+
+# probability of adding a new connection(link beteen nodes)
+conn_add_prob = 0.5
+
+# probability of deleting an existing connection during evolution
+conn_delete_prob = 0.5
+
+# enables new connections by default
+enabled_default = True
+
+# probability of toggling the enabled/disabled state of a connection during evolution
+enabled_mutate_rate = 0.01
+
+# set network to feed-forward(no cycles or loops in graphs)
+feed_forward = True
+
+# pattern for initial connections in network
+# 'full' means every node is connected to every other possible node at the start
+initial_connection = full
+
+# probability of adding a new node during evolution
+node_add_prob = 0.2
+
+# probability of deleting an existing node during evolution
+node_delete_prob = 0.2
+
+# number of hidden layers initially present in the network
+# set at 0 to allow dynamic layer formation
+num_hidden = 0
+
+# the number of input nodes in the network, corresponding to the inputs the network expects
+num_inputs = 5
+
+# the number of output nodes in the network
+num_outputs = 4
+
+# initial mean value for node response, affects how strongly nodes respond to inputs
+response_init_mean = 1.0
+
+# standard deviation for initializing node responses
+response_init_stdev = 0.0
+
+# the maximum allowable value for node responses
+response_max_value = 30.0
+
+# minimum allowable value for node responses
+response_min_value = -30.0
+
+# the degree of change applied to a node response when it mutates.
+response_mutate_power = 0.0
+
+# the probability of a node response being altered during mutation
+response_mutate_rate = 0.0
+
+# the probability of replacing a node response with a completely new value during mutation
+response_replace_rate = 0.0
+
+# mean value for initializing connecting weights, representing their strength
+weight_init_mean = 0.0
+
+# standard deviation for intializing connection weights
+weight_init_stdev = 1.0
+
+# max allowable value for connection weights
+weight_max_value = 30
+
+# min allowable value for connection weights
+weight_min_value = -30
+
+# degree of change applied to a connection weight when it mutates
+weight_mutate_power = 0.5
+
+# probability of a connection weight being altered during mutation
+weight_mutate_rate = 0.8
+
+# probability of replacing a connection weight with a completely new random value
+weight_replace_rate = 0.1
+
+[DefaultSpeciesSet]
+# threshold value for determining if two genomes are similar enough to be grouped into the same species
+compatibility_threshold = 2.0
+
+[DefaultStagnation]
+# function used to calculate species fitness
+# 'max'selects the highest fitness value in the species to represent it
+species_fitness_func = max
+
+# max number of generations a species can go without improvement before it is removed
+max_stagnation = 20
+
+[DefaultReproduction]
+# number of top-performing genomes preserved unchanged to the next generation
+elitism = 3
+
+# fraction of population that is allowed to reproduce
+# ensures some underperforming genomes do not pass on their generations
+survival_threshold = 0.2
+
